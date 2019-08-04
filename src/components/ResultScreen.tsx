@@ -20,7 +20,7 @@ interface IState {
   repositories: IRepository[];
 }
 
-export default class HomeScreen extends Component<IProps, IState> {
+export default class ResultScreen extends Component<IProps, IState> {
   public static navigationOptions = {
     title: 'RESULT'
   };
