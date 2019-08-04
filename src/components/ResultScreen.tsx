@@ -19,10 +19,12 @@ export default class HomeScreen extends Component<IProps, IState> {
 
   public render() {
     const { navigation } = this.props;
+    const username = navigation.getParam('username');
 
     return (
       <View>
         <Text>RESULT SCREEN</Text>
+        <Text>{`GitHub username: ${username}`}</Text>
         <Button title="New search" onPress={() => navigation.goBack()} />
       </View>
     );
