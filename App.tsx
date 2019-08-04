@@ -23,4 +23,4 @@ export function App() {
   );
 }
 
-export default createAppContainer(AppNavigator);
+export default AppContainer;
