@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, StyleSheet } from 'react-native';
 import { RESULT } from '../constants/Screens';
 import {
   NavigationScreenProp,
@@ -27,9 +27,12 @@ export default class HomeScreen extends Component<IProps, IState> {
 
   public render() {
     return (
-      <View>
-        <Text>Get repositories with contributions from user:</Text>
+      <View style={styles.container}>
+        <Text style={styles.label}>
+          Get repositories with contributions from user:
+        </Text>
         <TextInput
+          style={styles.input}
           placeholder="Type GitHub username"
           onChangeText={text => {
             this.setState({ username: text });
@@ -53,3 +56,25 @@ export default class HomeScreen extends Component<IProps, IState> {
     }
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  label: {
+    fontSize: 18,
+    margin: 5
+  },
+  input: {
+    borderWidth: 1,
+    width: 300,
+    height: 40,
+    margin: 5
+  },
+  button: {
+    backgroundColor: '#ff0000'
+  }
+});

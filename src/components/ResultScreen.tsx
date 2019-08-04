@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, StyleSheet } from 'react-native';
 import {
   NavigationScreenProp,
   NavigationState,
@@ -54,17 +54,18 @@ export default class HomeScreen extends Component<IProps, IState> {
     const username = navigation.getParam('username');
 
     return (
-      <View>
-        <Text>RESULT SCREEN</Text>
-        <Text>{`GitHub username: ${username}`}</Text>
-        <Text>{`User repositories:`}</Text>
+      <View style={styles.container}>
+        <Text style={styles.label}>{`GitHub username: ${username}`}</Text>
+        <Text
+          style={styles.label}
+        >{`Successful repositories contributed to:`}</Text>
         {this.state.isLoading ? (
           <Text>Loading...</Text>
         ) : (
           this.state.repositories.map(item => (
-            <Text key={item.nameWithOwner}>{`${item.stargazers.totalCount} - ${
-              item.name
-            }`}</Text>
+            <Text style={styles.item} key={item.nameWithOwner}>{`${
+              item.stargazers.totalCount
+            } ⭐ - ${item.name}`}</Text>
           ))
         )}
 
@@ -73,3 +74,20 @@ export default class HomeScreen extends Component<IProps, IState> {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  label: {
+    fontSize: 20,
+    margin: 5
+  },
+  item: {
+    fontSize: 16,
+    margin: 3
+  }
+});
