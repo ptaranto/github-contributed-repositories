@@ -54,3 +54,6 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+#token
+src/graphql/Token.ts
